@@ -1,6 +1,7 @@
 import { useState } from 'react'
-import './App.css'
 import axios from 'axios';
+import { Button } from './components/ui/button';
+import { Input } from './components/ui/input';
 
 function App() {
   const [files,setFiles] = useState<FileList | null >({} as FileList)
@@ -26,9 +27,9 @@ function App() {
   return (
     <>
       {/**@ts-ignore */}
-      <form onSubmit={handleSubmit}>
-        <input type="file" name="files" onChange={e=> setFiles(e.target.files)} />
-        <button type="submit">enviar arquivos</button>
+      <form onSubmit={handleSubmit} className='w-[400px] h-20 bg-red-500'>
+        <Input type="file" name="files" onChange={e=> setFiles(e.target.files)} />
+        <Button type="submit" variant={'outline'}>Enviar</Button>
       </form>
     </>
   )
